@@ -1,0 +1,17 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
+@import "./base/reset";
+
+@import "./layout/header";
+@import "./layout/footer";
+
+@import "./pages/accueil/accueil";
+@import "./pages/accueil/explore";
+@import "./pages/accueil/fonctionnements";
+@import "./pages/accueil/cartes";
+
+
+@import "./pages/restaurants/menu.scss";
+
+

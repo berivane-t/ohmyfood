@@ -1,0 +1,21 @@
+@mixin color-primary {
+    color: #9356DC;   
+}
+
+@mixin color-secondary {
+    color: #FF79DA;  
+}
+
+@mixin color-tertiary {
+    color: #99E2D0;
+}
+
+
+@mixin base-shadow {
+    box-shadow: 0.25rem 0.25rem 10px rgb(0 0 0/25%); 
+}
+
+@mixin background-principal {
+    background-color: #f6f6f6;
+}
+
