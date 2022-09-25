@@ -3,3 +3,21 @@ main{
     flex-direction: column;
     gap: 10px;
 }
+
+.loader{
+ font-size: 60PX;
+ color: #9356DC;
+ opacity: 0.8;
+animation: ease-in-out 1s;
+
+&::after {
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-right: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin ease-in-out;
+    animation-iteration-count: 2;
+}
+
+}
