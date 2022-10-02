@@ -109,3 +109,21 @@
         }
     }
 }
+
+/* VERSION PC */
+
+@media screen and (min-width:991px) {
+    .restaurant{
+        
+        h2{
+            text-align: center;
+        }
+        .restaurant_display{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+    }
+}
