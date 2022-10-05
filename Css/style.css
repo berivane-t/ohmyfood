@@ -17,25 +17,30 @@ a {
 }
 
 header {
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: row;
 }
 header #logo {
   width: auto;
+  height: auto;
   flex: 1;
-  padding: 0 20px 0 20px;
+  padding: 20px 20px 20px 20px;
 }
 header #logo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 header .icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50px;
+  height: 100%;
+}
+header .icon i {
+  font-size: 24px;
 }
 
 footer {
@@ -126,18 +131,19 @@ main {
   cursor: pointer;
 }
 
-.fonctionnement h2 {
+/***** VERSION MOBILE **********/
+fonctionnement h2 {
   padding-left: 25px;
   font-size: 23px;
   font-weight: bold;
 }
-.fonctionnement .itemsFonct {
+fonctionnement .itemsFonct {
   display: flex;
   flex-direction: column;
   gap: 25px;
   padding: 20px;
 }
-.fonctionnement .itemsFonct .itemFonct {
+fonctionnement .itemsFonct .itemFonct {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,7 +153,7 @@ main {
   border-radius: 20px;
   box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
 }
-.fonctionnement .itemsFonct .itemFonct .numberFonct {
+fonctionnement .itemsFonct .itemFonct .numberFonct {
   color: white;
   background-color: #9356DC;
   border-radius: 50%;
@@ -158,26 +164,27 @@ main {
   justify-content: center;
   align-items: center;
 }
-.fonctionnement .itemsFonct .itemFonct .iconFonct {
+fonctionnement .itemsFonct .itemFonct .iconFonct {
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid {
+fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid {
   color: gray;
 }
-.fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid:hover {
+fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid:hover {
   color: #9356DC;
 }
-.fonctionnement .itemsFonct .itemFonct .textFonc {
+fonctionnement .itemsFonct .itemFonct .textFonc {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
 }
 
+/* VERSION TABLETTE */
 /* VERSION PC */
 @media screen and (min-width: 991px) {
   .fonctionnement h2 {
@@ -189,7 +196,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
   }
-  .fonctionnement .textFonc {
+  .fonctionnement .itemsFonct .textFonc {
     padding-right: 40px;
   }
 }
@@ -296,6 +303,9 @@ main {
     justify-content: space-around;
     align-items: center;
   }
+  .restaurant .restaurant_display .rest_card {
+    height: 210px;
+  }
 }
 .img_menu {
   width: 100%;
@@ -397,15 +407,17 @@ main {
   align-items: center;
 }
 .menu .menu_type .menu_items .menu_item .check .round_check {
+  display: flex;
+  justify-content: center;
   height: 20px;
   width: 20px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: white;
   border-radius: 10px;
   color: #99E2D0;
 }
 .menu .menu_type .menu_items .menu_item:hover .round_check {
-  transition: transform 330ms ease-in-out;
+  transition: transform 80ms ease-in-out;
   transform: rotate(360deg);
 }
 .menu .menu_type .menu_items .menu_item:hover .check {
@@ -433,6 +445,18 @@ main {
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
+}
+
+/*********** VERSION PC ******************/
+@media screen and (min-width: 991px) {
+  .menu_type {
+    margin-bottom: 20px;
+  }
+  .menu_type .food {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

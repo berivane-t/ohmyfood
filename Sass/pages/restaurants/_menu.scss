@@ -105,9 +105,11 @@
                     justify-content: center;
                     align-items: center;
                     .round_check{
+                        display: flex;
+                        justify-content: center;
                         height: 20px;
                         width: 20px;
-                        font-size: 16px;
+                        font-size: 18px;
                         background-color: white;
                         border-radius: 10px;
                         @include color-tertiary;
@@ -116,14 +118,16 @@
                     }
                 }
                     &:hover .round_check{
-                        transition: transform 330ms ease-in-out;
+                        transition: transform 80ms ease-in-out;
                         transform: rotate(360deg);
+                        
                     }
                     
                     &:hover .check{
                         margin-right: 0px;
                         transform: translateX(0px);
                         transition: transform 330ms ease-in-out;
+        
                     } 
                 
             }
@@ -152,4 +156,18 @@
       font-size: 15px;
       font-weight: bold;
     }
+}
+
+/*********** VERSION PC ******************/
+
+@media screen and (min-width:991px){
+    .menu_type{
+    margin-bottom: 20px;
+     .food{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+     }
+    }
+
 }
