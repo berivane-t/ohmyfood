@@ -81,20 +81,50 @@ main {
   gap: 10px;
 }
 
-.loader {
-  font-size: 60PX;
-  color: #9356DC;
-  opacity: 0.8;
-  animation: ease-in-out 1s;
+body {
+  margin: 0;
+  padding: 0;
+  /* animation du loader */
 }
-.loader::after {
+body .loader {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.9;
+  animation: disappear 200ms 4s forwards;
+  transform-origin: top;
+}
+body .loader::after {
+  animation: spin 3s infinite linear;
   content: "";
   height: 100px;
   width: 100px;
   border-right: 5px solid transparent;
+  border-top: 5px solid #8047c4;
   border-radius: 50%;
-  animation: spin ease-in-out;
-  animation-iteration-count: 2;
+}
+@keyframes disappear {
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .omf_logo {
+  font-family: "Shrikhand";
+  color: black;
+  padding: 15px 0px 15px 15px;
+  width: 100%;
+  height: 50px;
+  font-size: 40px;
+  text-align: center;
 }
 
 .paris-belleville {
@@ -132,18 +162,18 @@ main {
 }
 
 /***** VERSION MOBILE **********/
-fonctionnement h2 {
+.fonctionnement h2 {
   padding-left: 25px;
   font-size: 23px;
   font-weight: bold;
 }
-fonctionnement .itemsFonct {
+.fonctionnement .itemsFonct {
   display: flex;
   flex-direction: column;
   gap: 25px;
   padding: 20px;
 }
-fonctionnement .itemsFonct .itemFonct {
+.fonctionnement .itemsFonct .itemFonct {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -153,7 +183,7 @@ fonctionnement .itemsFonct .itemFonct {
   border-radius: 20px;
   box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
 }
-fonctionnement .itemsFonct .itemFonct .numberFonct {
+.fonctionnement .itemsFonct .itemFonct .numberFonct {
   color: white;
   background-color: #9356DC;
   border-radius: 50%;
@@ -164,27 +194,37 @@ fonctionnement .itemsFonct .itemFonct .numberFonct {
   justify-content: center;
   align-items: center;
 }
-fonctionnement .itemsFonct .itemFonct .iconFonct {
+.fonctionnement .itemsFonct .itemFonct .iconFonct {
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid {
+.fonctionnement .itemsFonct .itemFonct .iconFonct i {
   color: gray;
 }
-fonctionnement .itemsFonct .itemFonct .iconFonct .fa-solid:hover {
+.fonctionnement .itemsFonct .itemFonct .iconFonct i:hover {
   color: #9356DC;
 }
-fonctionnement .itemsFonct .itemFonct .textFonc {
+.fonctionnement .itemsFonct .itemFonct .textFonc {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
 }
 
-/* VERSION TABLETTE */
+/******************** VERSION TABLETTE *******************/
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .itemsFonct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .itemsFonct .itemFonct {
+    width: 50%;
+  }
+}
 /* VERSION PC */
 @media screen and (min-width: 991px) {
   .fonctionnement h2 {
@@ -273,25 +313,47 @@ fonctionnement .itemsFonct .itemFonct .textFonc {
   width: 40px;
   font-size: 2rem;
   color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
-.restaurant .restaurant_display .like2 {
-  color: transparent;
-  background-image: linear-gradient(#FF79DA, #9356DC);
-  cursor: pointer;
-  background-clip: text;
-  opacity: 0;
-  transition: all 200ms ease-in-out;
-  -webkit-background-clip: text;
-  margin-left: -2rem;
+.restaurant .restaurant_display .rest_card .details_article .logo_heart .fa-heart {
+  font-size: 24px;
+  position: absolute;
+  right: 10px;
 }
-.restaurant .restaurant_display:hover .like2 {
+.restaurant .restaurant_display .rest_card .details_article .logo_heart .far {
+  z-index: 2;
   opacity: 1;
-  transform: translateY -50% scale(1.2);
+  transition: opacity 0.6s ease-in-out;
+}
+.restaurant .restaurant_display .rest_card .details_article .logo_heart .far:hover {
+  opacity: 0;
+}
+.restaurant .restaurant_display .rest_card .details_article .logo_heart .far:hover + .fas {
+  opacity: 1;
+  animation: heart-full 0.4s linear both;
+}
+.restaurant .restaurant_display .rest_card .details_article .logo_heart .fas {
+  background: linear-gradient(63deg, #FF79DA 0%, #9356DC 100%);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  z-index: 1;
+  transform-origin: 50% bottom;
+  transform: scale(1);
+  animation: transform 0.4s cubic-bezier(0.43, 0.21, 1, 0.45);
 }
 
+/**** KEYFRAME heart ****/
+@keyframes heart-full {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /* VERSION PC */
 @media screen and (min-width: 991px) {
   .restaurant h2 {
@@ -367,6 +429,29 @@ fonctionnement .itemsFonct .itemFonct .textFonc {
   font-weight: initial;
   color: gray;
 }
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.menu .menu_type .delay-1 {
+  animation: appear 1.5s;
+  animation-delay: 100ms;
+  animation-fill-mode: both;
+}
+.menu .menu_type .delay-2 {
+  animation: appear 2.5s;
+  animation-delay: 150ms;
+  animation-fill-mode: both;
+}
+.menu .menu_type .delay-3 {
+  animation: appear 3.5s;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+}
 .menu .menu_type .menu_items {
   width: 100%;
 }
@@ -383,13 +468,22 @@ fonctionnement .itemsFonct .itemFonct .textFonc {
   width: auto;
   flex: 1;
   margin-left: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .menu .menu_type .menu_items .menu_item .text_rest h4 {
   margin-top: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .menu .menu_type .menu_items .menu_item .text_rest p {
   margin-top: -1rem;
   color: gray;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .menu .menu_type .menu_items .menu_item .price {
   display: flex;
@@ -449,13 +543,26 @@ fonctionnement .itemsFonct .itemFonct .textFonc {
 
 /*********** VERSION PC ******************/
 @media screen and (min-width: 991px) {
-  .menu_type {
-    margin-bottom: 20px;
-  }
-  .menu_type .food {
+  .menu {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    width: auto;
+    flex: 1;
+  }
+  .menu .menu_type {
+    margin-bottom: 20px;
+  }
+  .menu .menu_type .food {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
+  }
+}
+/******************** VERSION TABLETTE *******************/
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .restaurant .restaurant_display .rest_card {
+    width: 50%;
   }
 }
 

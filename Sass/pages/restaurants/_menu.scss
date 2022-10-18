@@ -66,6 +66,33 @@
                 color: gray;
              }
         }
+        .food{
+            @keyframes appear {
+                0% {
+                    transform: scale(0);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .delay-1{
+            animation: appear 1.5s;
+            animation-delay: 100ms;
+            animation-fill-mode: both;
+        }
+        .delay-2{
+            animation: appear 2.5s;
+            animation-delay: 150ms;
+            animation-fill-mode: both;
+        }
+        .delay-3{
+            animation: appear 3.5s;
+            animation-delay: 200ms;
+            animation-fill-mode: both;
+        }
+
         .menu_items{ 
             width: 100%;
             .menu_item{
@@ -81,13 +108,25 @@
                     width: auto;
                     flex: 1;
                     margin-left: 10px;
+                    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
                     h4{
                         margin-top: 10px;
+                        white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
 
                     }
                     p{ 
                         margin-top: -1rem;
                         color: gray;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    
                     }
                  }
                 .price{
@@ -161,13 +200,34 @@
 /*********** VERSION PC ******************/
 
 @media screen and (min-width:991px){
+    
+    .menu{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     width: auto;
+     flex: 1;
+     
     .menu_type{
     margin-bottom: 20px;
      .food{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 10px;
      }
     }
+ }
+}
 
+/******************** VERSION TABLETTE *******************/
+
+
+@media screen and (min-width:600px) and (max-width:991px) {
+    .restaurant{
+        .restaurant_display{
+            .rest_card{
+                width: 50%;
+            }
+        }
+    }
 }

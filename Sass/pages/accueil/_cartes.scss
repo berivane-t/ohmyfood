@@ -78,9 +78,36 @@
                     width: 40px;
                     font-size: 2rem;
                     color: black;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    position: relative;
+                    .fa-heart{
+                        font-size: 24px;
+                        position: absolute;
+                        right: 10px;
+                    }
+                    .far{
+                        z-index: 2;
+                        opacity: 1;
+                        transition: opacity 0.6s ease-in-out;
+                        &:hover{
+                            opacity: 0;
+                            + .fas{
+                                opacity: 1;
+                                animation: heart-full 0.4s linear both;
+                            }
+                        }
+                    }
+                    .fas{
+                        background: linear-gradient(63deg, #FF79DA 0%, #9356DC 100%);
+                        background-clip: content-box;
+                        -webkit-background-clip: text;
+                        -moz-background-clip: text;
+                        color: transparent;
+                        opacity: 0;
+                        z-index: 1;
+                        transform-origin: 50% bottom;
+                        transform: scale(1);
+                        animation: transform 0.4s cubic-bezier(0.43, 0.21, 1, 0.45);
+                    }
 
                 }
             }
@@ -92,23 +119,20 @@
 
 
 
-        .like2 {
-            color: transparent;
-            background-image: linear-gradient(#FF79DA, #9356DC);
-            cursor: pointer;
-            background-clip: text;
-            opacity: 0;
-            transition: all 200ms ease-in-out;
-            -webkit-background-clip: text;
-            margin-left: -2rem;
-        }
-
-        &:hover .like2 {
-            opacity: 1;
-            transform: translateY (-50%) scale(1.2);
-        }
+       
     }
 }
+  
+/**** KEYFRAME heart ****/
+@keyframes heart-full {
+    0% {
+      transform: scale(0);
+    }
+    
+    100% {
+      transform: scale(1);
+    }
+  }
 
 /* VERSION PC */
 
