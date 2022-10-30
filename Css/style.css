@@ -157,8 +157,11 @@ body .omf_logo {
   color: white;
   box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
   border: none;
-  transition: transform 200ms;
   cursor: pointer;
+}
+.btn_explore:hover {
+  transform: scale(1.1);
+  transition: transform 600ms ease-in-out;
 }
 
 /***** VERSION MOBILE **********/
@@ -535,10 +538,13 @@ body .omf_logo {
   color: white;
   box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
   border: none;
-  transition: transform 200ms;
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
+}
+.commander .btn_commander:hover {
+  transform: scale(1.1);
+  transition: transform 600ms ease-in-out;
 }
 
 /*********** VERSION PC ******************/
@@ -557,6 +563,9 @@ body .omf_logo {
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+  .menu .menu_type .food .menu_item {
+    width: 320px;
   }
 }
 /******************** VERSION TABLETTE *******************/
